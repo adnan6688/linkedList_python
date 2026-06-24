@@ -32,25 +32,25 @@ class LinkedList :
 
 
 
+
     def insert_at_position(self,position,new_value):
 
         new_node = Node(new_value) #create new node 
 
-
-        if position == 0 :
-            new_node.next = self.head 
-            self.head = new_node
+        if position == 0 : # jodi position zero hoi .. amader newNode ar next a amader current node ar ref rekhe dibo .. 
+            new_node.next = self.head  # None -> newNode ar next akhn None hoye jabe  
+            self.head = new_node # ai khane amar head ar modde newNode store kore dilam
             return 
 
 
-        current = self.head 
+        current = self.head   #jodi age theke node thake .... tah hole amra linked list ar 1st node k nilam . mane head ta k 
 
-        for _ in range(position-1):
+        for _ in range(position-1):  # je position a insert korbo oi node ar age porjontto jabo
             current = current.next
 
         
-        new_node.next = current.next 
-        current.next = new_node
+        new_node.next = current.next  # newNode ar next a current node ar next a Store kora Address k rekhe dilam
+        current.next = new_node # and current node ar next a amra newNode ar address rekhe dilam
 
 
     def display(self):
