@@ -31,8 +31,6 @@ class LinkedList :
 
 
 
-
-
     def insert_at_position(self,position,new_value):
 
         new_node = Node(new_value) #create new node 
@@ -59,6 +57,41 @@ class LinkedList :
         while current : 
             print(current.data , end=" -> ")
             current = current.next
+
+
+    def delete_head(self):
+        if self.head is None : 
+            print('Head is Empty')
+            return
+
+        #supposed
+        # head = [10,#1#1]
+        # [10,#1#1],[20,None]
+        
+        self.head = self.head.next
+        # head = #1#1
+        # head = [20,None]
+    
+
+    def delete_end(self):
+
+
+        if self.head is None:
+            return
+        
+
+        if self.head.next is None:
+            #head =  [10,None]
+            self.head = None
+            #head = None
+            return
+
+
+        temp = self.head
+        while temp.next.next : 
+            temp = temp.next 
+
+        temp.next = None
 
 
 ll = LinkedList()
