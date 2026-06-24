@@ -93,13 +93,38 @@ class LinkedList :
 
         temp.next = None
 
+    
+    def remove_duplicate(self):
+
+        current = self.head
+
+        while current and  current.next : 
+
+            if current.data == current.next.data : 
+                current.next = current.next.next 
+            else : 
+                current = current.next 
+
+
+
+
+
+
+
+
 
 ll = LinkedList()
 
 ll.append(10)
 ll.append(20)
+ll.append(20)
+ll.append(20)
 ll.append(30)
 
-ll.insert_at_position(1,11)
 
+
+ll.display()
+
+ll.remove_duplicate()
+print("unique list: ", end="")
 ll.display()
