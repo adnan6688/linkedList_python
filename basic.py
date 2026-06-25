@@ -105,11 +105,42 @@ class LinkedList :
             else : 
                 current = current.next 
 
+    def reverLinkList(self):
+        prev = None
+        current = self.head
+
+        while current : 
+            next_node = current.next 
+            current.next = prev 
+            prev = current
+            current = next_node 
+        self.head = prev
 
 
+    def middleNode(self,head):
+        slow = head
+        fast = head
 
+        while fast and fast.next : 
+            slow = slow.next 
+            fast = fast.next.next 
+        
+        return slow.data
 
+    def searchValue(self,head,targetValue) : 
 
+        current = head
+        findVal = None
+        pos = 0
+        while current : 
+            if current.data == targetValue : 
+                findVal=current.data
+                break
+            current = current.next
+            pos +=1 
+        return  [findVal,pos]
+
+    
 
 
 
@@ -117,14 +148,29 @@ ll = LinkedList()
 
 ll.append(10)
 ll.append(20)
-ll.append(20)
-ll.append(20)
 ll.append(30)
+ll.append(40)
+ll.append(50)
+ll.append(60)
+ll.append(70)
 
 
 
-ll.display()
+ll.display() 
 
-ll.remove_duplicate()
-print("unique list: ", end="")
-ll.display()
+# ll.remove_duplicate()
+# ll.reverLinkList()
+print(end="")
+# ll.display()
+
+# midNode= ll.middleNode(ll.head)
+# print("MidNode",midNode)
+
+
+[val,pos] = ll.searchValue(ll.head,10)
+
+
+if val == None : 
+    print('This value not found sorry!!')
+else : 
+    print("Position ",pos , "Of value : ",val)
